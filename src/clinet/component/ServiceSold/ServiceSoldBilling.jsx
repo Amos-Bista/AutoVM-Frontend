@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setSoldservicebillingperiod,
   setSoldservicebillingperiodvalue,
-} from "../../reduxToolKit/service/slices";
+} from "../../../common/reduxToolKit/service/slices";
 import { useNavigate } from "react-router-dom";
 
 const ServiceSoldBilling = ({ handleNext, handleBack }) => {

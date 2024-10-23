@@ -1,13 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { FormProvider } from "./common/formcontext";
+import { Provider } from "react-redux";
+import store from "../src/common/reduxToolKit/store";
+import { ModalProvider } from "./common/modalProvider/modalContext";
+import { ModalRoot } from "./common/modalProvider/modalRoot";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ModalProvider>
+        <FormProvider>
+          <App />
+          <ModalRoot />
+        </FormProvider>
+      </ModalProvider>
+    </Provider>
   </React.StrictMode>
 );
 

@@ -6,7 +6,7 @@ const ButtonSwitch = ({ label, onChange, value }) => {
     const newValue = event.target.checked; // Get the checked state of the switch
     onChange(newValue); // Call the provided onChange function with the new value
   };
-  console.log("main button comp", value);
+  // console.log("main button comp", value);
   return (
     <div className="flex justify-between">
       <label className={`font-bold w-[20rem] pr-4 text-sm`}>{label}</label>

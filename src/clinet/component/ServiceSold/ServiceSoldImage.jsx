@@ -7,7 +7,7 @@ import {
   setSelectedVersion,
   setSelectedVersionvalue,
   setUsername,
-} from "../../reduxToolKit/service/slices";
+} from "../../../common/reduxToolKit/service/slices";
 
 const operatingSystems = [
   {
