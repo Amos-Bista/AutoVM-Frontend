@@ -11,6 +11,8 @@ const NavBar = () => {
     { title: "Home", link: "/" },
     { title: "About Us", link: "/about" },
     { title: "Contact", link: "/contact" },
+    { title: "Admin", link: "/login" },
+
     // Uncomment and use this for dropdown example
     // {
     //   title: "Services",
@@ -66,7 +68,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className={`pl-7 pr-7 ${scrolled ? "bg-white" : "bg-[#113A6E]"}`}>
+    <div className={`pl-7 pr-7 ${scrolled ? "bg-white" : "bg-[#0e3f5b]"}`}>
       <div className="relative flex justify-between px-6 mt-0 align-middle h-[4rem]">
         <a href="/">
           <img
@@ -115,7 +117,9 @@ const NavBar = () => {
                       <ul
                         ref={dropdownRef}
                         className={`absolute text-black top-full left-0 shadow-md rounded-b-lg ${
-                          scrolled ? "bg-white text-black" : "bg-[#062435] text-white"
+                          scrolled
+                            ? "bg-white text-black"
+                            : "bg-[#062435] text-white"
                         }`}
                         aria-label="Dropdown Menu"
                       >

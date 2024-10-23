@@ -12,7 +12,7 @@ export const loginUser = createAsyncThunk(
       );
       const token = response.data.token; // Adjust based on your backend response structure
       localStorage.setItem("token", token); // Save the token in localStorage
-      navigate("/adminhome");
+      navigate("/admin");
 
       return { token, email }; // Return the token and any other required data
     } catch (error) {
