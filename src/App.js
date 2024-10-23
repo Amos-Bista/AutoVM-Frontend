@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ServiceSoldPage from "./clinet/pages/serviceSoldPage";
 import plan from "../src/common/components/plan";
 import { ModalRoot } from "./common/modalProvider/modalRoot";
+import { Box } from "@mui/material";
+import NavBar from "./common/components/navbar";
 
 // Define components directly in the App.jsx for simplicity
 const Home = () => <h1>Welcome to the Home Page</h1>;
@@ -21,7 +23,9 @@ const routes = [
 
 const App = () => {
   return (
-    <Router>
+    <Box>
+      <NavBar />
+      {/* <Router> */}
       <Routes>
         {routes.map((route) => (
           <Route
@@ -31,7 +35,8 @@ const App = () => {
           />
         ))}
       </Routes>
-    </Router>
+      {/* </Router> */}
+    </Box>
   );
 };
 
