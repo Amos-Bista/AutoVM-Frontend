@@ -8,13 +8,16 @@ import { Provider } from "react-redux";
 import store from "../src/common/reduxToolKit/store";
 import { ModalProvider } from "./common/modalProvider/modalContext";
 import { ModalRoot } from "./common/modalProvider/modalRoot";
+import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ModalProvider>
         <FormProvider>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
           <ModalRoot />
         </FormProvider>
       </ModalProvider>
