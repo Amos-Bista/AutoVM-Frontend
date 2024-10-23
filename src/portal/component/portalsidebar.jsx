@@ -9,60 +9,60 @@ import { Link, useNavigate } from "react-router-dom";
 const sidebarData = [
   {
     title: "Dashboard",
-    path: "/portal",
+    path: "/admin",
     icon: <AiFillHome size={20} />,
   },
   {
     title: "Services",
-    path: "/portal/service",
+    path: "/admin/service",
     icon: <MdDesignServices size={19} />,
     subItems: [
       {
         title: "Unit",
-        path: "/portal/service",
+        path: "/admin/service",
       },
       {
         title: "Bundle",
-        path: "/portal/service",
+        path: "/admin/service",
       },
       {
         title: "Schemes",
-        path: "/portal/service",
+        path: "/admin/service",
       },
     ],
   },
   {
     title: "Users",
-    path: "/portal/user",
+    path: "/admin/user",
     icon: <FaUser size={19} />,
     subItems: [
       {
         title: "Customers",
-        path: "/portal/user",
+        path: "/admin/user",
       },
       {
         title: "Staff",
-        path: "/portal/user",
+        path: "/admin/user",
       },
     ],
   },
   {
     title: "Reports",
-    path: "/portal/report",
+    path: "/admin/report",
     icon: <TbFileReport size={20} />,
   },
   {
     title: "Settings",
-    path: "/portal/setting",
+    path: "/admin/setting",
     icon: <MdSettings size={20} />,
     subItems: [
       {
         title: "Account Settings",
-        path: "/portal/setting",
+        path: "/admin/setting",
       },
       {
         title: "Privacy Settings",
-        path: "/portal/setting",
+        path: "/admin/setting",
       },
     ],
   },
@@ -101,7 +101,7 @@ const Portalsidebar = () => {
         >
           <a href="/">
             <img
-              src="/dataspacelogo.png"
+              src="/dataspacelogo1.png"
               alt="Dataspace Logo"
               className="h-11"
             />

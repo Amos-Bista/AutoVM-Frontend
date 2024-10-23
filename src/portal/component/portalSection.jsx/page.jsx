@@ -2,9 +2,9 @@ import { Box } from "@mui/material";
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Portalsidebar from "../portalsidebar";
-import PortalDashboard from "../../pages/dashboard";
 import Serviceportal from "../../pages/serviceportal";
 import Userportal from "../../pages/userportal";
+import PortalDashboard from "../../pages/dashboard";
 import Reportportal from "../../pages/reportportal";
 import Settingportal from "../../pages/settingportal";
 const PortalSection = () => {
