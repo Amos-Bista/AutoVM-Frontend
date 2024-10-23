@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Stepper, Step, StepLabel, CircularProgress } from "@mui/material";
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  CircularProgress,
+  styled,
+} from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import { styled } from "@mui/material/styles";
 import ServiceSoldBilling from "./ServiceSoldBilling";
 import ServiceSoldLogin from "./ServiceSoldLogin";
 import ServiceSoldNetworking from "./ServiceSoldNetworking";
@@ -9,16 +14,16 @@ import ServiceSoldRegion from "./ServiceSoldRegion";
 import ServiceSoldImage from "./ServiceSoldImage";
 import { useNavigate } from "react-router-dom"; // Import useLocation
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
 import { BackButton, HomeButton } from "./Button";
 import {
   setHostname,
   setLoading,
   setSoldserviceprice,
-} from "../../reduxToolKit/service/slices";
+} from "../../../common/reduxToolKit/service/slices";
 import { toast } from "react-toastify";
-import { useModal } from "../modalProvider/modalContext";
-import { ModalTypes } from "../utils/enum";
+import { useModal } from "../../../common/modalProvider/modalContext";
+import { ModalTypes } from "../../../utils/enum";
+import { useDispatch, useSelector } from "react-redux";
 
 const steps = Array.from({ length: 6 }, (_, index) => `Step ${index + 1}`);
 
@@ -66,7 +71,7 @@ const StepContent = ({
   handleNext,
   handleBack,
   handlehome,
-  postData,
+  // postData,
   handleOrderSummaryModal,
 }) => {
   switch (activeStep) {
@@ -96,7 +101,7 @@ const StepContent = ({
         <ServiceSoldNetworking
           handleNext={handleNext}
           handleBack={handleBack}
-          postData={postData}
+          // postData={postData}
           handleOrderSummaryModal={handleOrderSummaryModal}
         />
       );
@@ -167,48 +172,48 @@ const ServiceDetails = ({ id }) => {
   //     console.error("Error fetching data:", error);
   //   }
   // }
-  const postData = async (selectedVersionvalue) => {
-    const isLinux = [
-      "local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst",
-      "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst",
-      "local:vztmpl/centos-9-stream-default_20221109_amd64.tar.xz",
-    ].includes(selectedVersion);
+  // const postData = async (selectedVersionvalue) => {
+  //   const isLinux = [
+  //     "local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst",
+  //     "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst",
+  //     "local:vztmpl/centos-9-stream-default_20221109_amd64.tar.xz",
+  //   ].includes(selectedVersion);
 
-    // console.log({ selectedVersion });
-    const data = {
-      hostName: hostname,
-      memory: soldRAM,
-      cores: soldCPU,
-      additionalip: ip,
-      monitoring: monitoring,
-      snapShot: soldsnapshot,
-      password: password,
-    };
+  //   // console.log({ selectedVersion });
+  //   const data = {
+  //     hostName: hostname,
+  //     memory: soldRAM,
+  //     cores: soldCPU,
+  //     additionalip: ip,
+  //     monitoring: monitoring,
+  //     snapShot: soldsnapshot,
+  //     password: password,
+  //   };
 
-    // Add disk size for Windows, rootFs for Linux
-    if (isLinux) {
-      data.rootFs = soldstorage;
-      data.osTemplate = selectedVersion;
-      // data.backup = backup;
-    } else {
-      data.disksize = soldstorage + "G";
-      data.templateId = selectedVersion;
-    }
+  //   // Add disk size for Windows, rootFs for Linux
+  //   if (isLinux) {
+  //     data.rootFs = soldstorage;
+  //     data.osTemplate = selectedVersion;
+  //     // data.backup = backup;
+  //   } else {
+  //     data.disksize = soldstorage + "G";
+  //     data.templateId = selectedVersion;
+  //   }
 
-    const url = isLinux
-      ? "http://10.10.10.135:5051/api/Container/create2"
-      : "http://10.10.10.135:5051/create2";
-    try {
-      setLoading(true);
-      const response = await axios.post(url, data);
-      // console.log("Response data:", response.data);
-      toast.success("Successfully created");
-      setLoading(false);
-    } catch (error) {
-      console.error("Error posting data:", error);
-      setLoading(false);
-    }
-  };
+  //   const url = isLinux
+  //     ? "http://10.10.10.137:5051/api/Container/create"
+  //     : "http://10.10.10.137:5051/create";
+  //   try {
+  //     setLoading(true);
+  //     const response = await axios.post(url, data);
+  //     console.log("Response data:", response.data);
+  //     toast.success("Successfully created");
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.error("Error posting data:", error);
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -283,7 +288,7 @@ const ServiceDetails = ({ id }) => {
           handleNext={handleNext}
           handleBack={handleBack}
           handlehome={handlehome}
-          postData={postData}
+          // postData={postData}
           handleOrderSummaryModal={handleOrderSummaryModal}
         />
       </div>

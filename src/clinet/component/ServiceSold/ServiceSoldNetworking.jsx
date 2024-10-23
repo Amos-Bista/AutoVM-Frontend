@@ -7,15 +7,19 @@ import {
   setIp,
   setMonitoring,
   setServerManage,
-} from "../../reduxToolKit/service/slices";
+} from "../../../common/reduxToolKit/service/slices";
+import { ModalTypes } from "../../../utils/enum";
+import { useModal } from "../../../common/modalProvider/modalContext";
 
 const ServiceSoldNetworking = ({
   handleNext,
   handleBack,
   postData,
-  handleOrderSummaryModal,
+  // handleOrderSummaryModal,
 }) => {
   const dispatch = useDispatch();
+  const { openModal } = useModal();
+
   const ip = useSelector((state) => state.app?.ip);
   const handleIpChange = (newValue) => {
     dispatch(setIp(newValue));
@@ -31,6 +35,11 @@ const ServiceSoldNetworking = ({
   };
   const handleMonitoringChange = (newValue) => {
     dispatch(setMonitoring(newValue));
+  };
+
+  const handleOrderSummaryModal = () => {
+    console.log("Opening Order Summary Modal");
+    openModal(ModalTypes.ORDER_SUMMARY);
   };
   // const handleSubmit = () => {
   //   postData();

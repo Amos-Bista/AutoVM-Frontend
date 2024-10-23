@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import ServiceDetails from "../component/ServiceSold/ServiceDetails";
 import ServiceSummary from "../component/ServiceSold/ServiceSummary";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 
 const ServiceSoldPage = () => {
   const { id } = useParams(); // Get the ID from the URL

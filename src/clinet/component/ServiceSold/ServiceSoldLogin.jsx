@@ -6,7 +6,7 @@ import {
   setConfirmPassword,
   setHostname,
   setPassword,
-} from "../../reduxToolKit/service/slices";
+} from "../../../common/reduxToolKit/service/slices";
 
 const ServiceSoldLogin = ({ handleNext, handleBack }) => {
   const dispatch = useDispatch();

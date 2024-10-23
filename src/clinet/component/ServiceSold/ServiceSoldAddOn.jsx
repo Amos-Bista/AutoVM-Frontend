@@ -7,7 +7,7 @@ import {
   setBackup,
   setMonitoring,
   setServerManage,
-} from "../../reduxToolKit/service/slices";
+} from "../../../common/reduxToolKit/service/slices";
 
 const ServiceSoldAddOn = ({ handleBack, handleNext, postData }) => {
   const dispatch = useDispatch();

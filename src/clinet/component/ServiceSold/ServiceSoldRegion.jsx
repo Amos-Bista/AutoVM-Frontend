@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import ServiceDropdown from "./ServiceDropdown";
 import { BackButton, ConfirmButton } from "./Button";
-import regionOptions from "../../assests/dynamic/regionOptions.json"; // Import the JSON file
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedRegion } from "../../reduxToolKit/service/slices";
+import { setSelectedRegion } from "../../../common/reduxToolKit/service/slices";
+
+const regionOptions = [{ value: "Putalisadak", label: "Putalisadak" }];
 
 const ServiceSoldRegion = ({ handleBack, handleNext }) => {
   const dispatch = useDispatch();

@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "servicePlanTitle": "Virtual Private Server",
+    "servicePlanTiers": "BRONZE",
+    "price": "999",
+    "subscriptionPlan": "Monthly",
+    "link": "https://www.youtube.com/watch?v=gxXzyQWpv90",
+    "specifications": [
+      {
+        "id": 1,
+        "feature": "Core CPU",
+        "featureValue": 1
+      },
+      {
+        "id": 2,
+        "feature": " MB RAM",
+        "featureValue": 1024
+      },
+      {
+        "id": 3,
+        "feature": " GB SSD",
+        "featureValue": "40"
+      },
+
+      {
+        "id": 5,
+        "feature": "DS CONTROL PANEL",
+        "featureValue": ""
+      },
+      {
+        "id": 6,
+        "feature": "24/7 CUSTOMER SUPPORT",
+        "featureValue": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "servicePlanTitle": "Virtual Private Server",
+    "servicePlanTiers": " SILVER",
+    "price": "2799",
+    "subscriptionPlan": "Monthly",
+    "link": "https://www.youtube.com/watch?v=IGzkBZzGXHA&list=RDE_ZX0ARiRms&index=2",
+    "specifications": [
+      {
+        "id": 1,
+        "feature": "Core Cpu",
+        "featureValue": 2
+      },
+      {
+        "id": 2,
+        "feature": " MB RAM",
+        "featureValue": 2000
+      },
+      {
+        "id": 3,
+        "feature": " GB SSD",
+        "featureValue": "50"
+      },
+
+      {
+        "id": 5,
+        "feature": "DS CONTROL PANEL",
+        "featureValue": ""
+      },
+      {
+        "id": 6,
+        "feature": "24/7 CUSTOMER SUPPORT",
+        "featureValue": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "servicePlanTitle": "Virtual Private Server",
+    "servicePlanTiers": "GOLD",
+    "price": "4000",
+    "subscriptionPlan": "Monthly",
+    "link": "https://www.youtube.com/watch?v=IGzkBZzGXHA&list=RDE_ZX0ARiRms&index=2",
+    "specifications": [
+      {
+        "id": 1,
+        "feature": "Core Cpu",
+        "featureValue": 4
+      },
+      {
+        "id": 2,
+        "feature": " MB RAM",
+        "featureValue": 4000
+      },
+      {
+        "id": 3,
+        "feature": "GB SSD",
+        "featureValue": "60"
+      },
+
+      {
+        "id": 5,
+        "feature": "DS CONTROL PANEL",
+        "featureValue": ""
+      },
+      {
+        "id": 6,
+        "feature": "24/7 CUSTOMER SUPPORT",
+        "featureValue": ""
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "servicePlanTitle": "Virtual Private Server",
+    "servicePlanTiers": "PLATNIUM",
+    "price": "4499",
+    "subscriptionPlan": "Monthly",
+    "link": "https://www.youtube.com/watch?v=IGzkBZzGXHA&list=RDE_ZX0ARiRms&index=2",
+    "specifications": [
+      {
+        "id": 1,
+        "feature": "Core Cpu",
+        "featureValue": 6
+      },
+      {
+        "id": 2,
+        "feature": " MB RAM",
+        "featureValue": 6000
+      },
+      {
+        "id": 3,
+        "feature": " GB SSD",
+        "featureValue": "70"
+      },
+
+      {
+        "id": 5,
+        "feature": "DS CONTROL PANEL",
+        "featureValue": ""
+      },
+      {
+        "id": 6,
+        "feature": "24/7 CUSTOMER SUPPORT",
+        "featureValue": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "servicePlanTitle": "Virtual Private Server",
+    "servicePlanTiers": "PREMIUM",
+    "price": "4999",
+    "subscriptionPlan": "Monthly",
+    "link": "https://www.youtube.com/watch?v=IGzkBZzGXHA&list=RDE_ZX0ARiRms&index=2",
+    "specifications": [
+      {
+        "id": 1,
+        "feature": "Core Cpu",
+        "featureValue": 6
+      },
+      {
+        "id": 2,
+        "feature": " MB RAM",
+        "featureValue": 12000
+      },
+      {
+        "id": 3,
+        "feature": " GB SSD",
+        "featureValue": "90"
+      },
+
+      {
+        "id": 5,
+        "feature": "DS CONTROL PANEL",
+        "featureValue": ""
+      },
+      {
+        "id": 6,
+        "feature": "24/7 CUSTOMER SUPPORT",
+        "featureValue": ""
+      }
+    ]
+  }
+]
