@@ -19,8 +19,6 @@ import Slider from "react-slick/lib/slider";
 
 export default function Plans() {
   const navigate = useNavigate();
-  const soldtiers = useSelector((state) => state.app?.soldtiers);
-  const sliderRef = useRef(null);
 
   const dispatch = useDispatch();
   // const settings = {
@@ -70,12 +68,9 @@ export default function Plans() {
   }, [stateCss]);
 
   const handleBuyNow = (planId) => {
-    // Find the plan by ID from planData
     const selectedPlan = plan.find((plan) => plan.id === planId);
-    // console.log("planselected", selectedPlan.servicePlanTitle);
 
     if (selectedPlan) {
-      // Dispatch the actions to update the Redux state
       dispatch(setSoldservicename(selectedPlan.servicePlanTitle || "null"));
       dispatch(setSoldtiers(selectedPlan.servicePlanTiers));
       dispatch(setSoldserviceprice(selectedPlan.price));
@@ -137,7 +132,7 @@ export default function Plans() {
 
   return (
     <div>
-      <div className="flex-col justify-center p-12 ">
+      <div className="flex-col justify-center px-12 pt-0">
         <h1 className="flex justify-center my-12 font-semibold lg:mb-6 lg:text-4xl md:text-3xl sm:text-2xl sm:mb-12 text-[#0D5077] ">
           Our Popular Plans & Pricing
         </h1>
@@ -202,7 +197,7 @@ export default function Plans() {
                   <div className="flex justify-center pt-4 pb-2 rounded-lg">
                     <div className="flex justify-center align-top">
                       <h3 className="font-bold text-gray-700 text-l ">Nrs </h3>
-                      <h3 className="font-sans font-serif text-5xl font-semibold text-gray-700">
+                      <h3 className="font-sans text-5xl font-semibold text-gray-700">
                         {plan?.price}
                       </h3>
                     </div>

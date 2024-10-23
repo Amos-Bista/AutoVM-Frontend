@@ -19,15 +19,15 @@ const sidebarData = [
     subItems: [
       {
         title: "Unit",
-        path: "/admin/service",
+        path: "/admin/unit",
       },
       {
         title: "Bundle",
-        path: "/admin/service",
+        path: "/admin/bundle",
       },
       {
         title: "Schemes",
-        path: "/admin/service",
+        path: "/admin/schemes",
       },
     ],
   },
@@ -38,11 +38,11 @@ const sidebarData = [
     subItems: [
       {
         title: "Customers",
-        path: "/admin/user",
+        path: "/admin/customer",
       },
       {
         title: "Staff",
-        path: "/admin/user",
+        path: "/admin/staff",
       },
     ],
   },

@@ -11,15 +11,16 @@ import { ModalRoot } from "./common/modalProvider/modalRoot";
 import { Box } from "@mui/material";
 import NavBar from "./common/components/navbar";
 import admin from "../src/portal/component/portalSection.jsx/page";
+import LoginForm from "./pages/login";
+import Home from "./common/pages/home";
 
 // Define components directly in the App.jsx for simplicity
-const Home = () => <h1>Welcome to the Home Page</h1>;
 
 // Define your routes in a JSON-like structure
 const routes = [
   {
     path: "/",
-    component: plan,
+    component: Home,
   },
   {
     path: "/shop/:id",
@@ -28,6 +29,10 @@ const routes = [
   {
     path: "/admin/*",
     component: admin,
+  },
+  {
+    path: "/login",
+    component: LoginForm,
   },
 ];
 

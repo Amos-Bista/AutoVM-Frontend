@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 
-const Serviceportal = () => {
+const Staff = () => {
   return (
     <Box
       sx={{
@@ -13,9 +13,9 @@ const Serviceportal = () => {
         padding: "3rem",
       }}
     >
-      <p>This is the service portal component.</p>
+      <p>Staff</p>
     </Box>
   );
 };
 
-export default Serviceportal;
+export default Staff;
