@@ -102,7 +102,6 @@ const OrderSummary = () => {
       setLoading(false);
     } catch (error) {
       toast.success("Successfully created");
-
       console.error("Error posting data:", error);
       setLoading(false);
     }
