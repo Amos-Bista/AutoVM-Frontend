@@ -1,0 +1,15 @@
+[
+    {
+      "os": "Ubuntu",
+      "logo": "https://pluspng.com/img-png/ubuntu-logo-png-ubuntu-icon-logo-png-transparent-amp-svg-vector-pluspng-2400x2390.png",
+      "price": null,
+      "options": ["Ubuntu 22.04", "Ubuntu 20.04"]
+    },
+    {
+      "os": "Windows",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/2d83d34a-b844-4fda-8550-438365b03c70/d5cki5j-bc735099-7ef7-4389-8e7a-4e0151873a13.png",
+      "price": 9.0,
+      "options": ["Windows 11", "Windows 10"]
+    }
+  ]
+  

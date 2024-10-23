@@ -1,0 +1,15 @@
+{
+    "networkingOptions": [
+      { "value": 0, "label": "None" },
+      { "value": 1, "label": "250 GB Storage in European Union" }
+    ],
+    "bandwidthOptions": [
+      { "value": 0, "label": "None" },
+      { "value": 1, "label": "250 GB Bandwidth" }
+    ],
+    "ipOptions": [
+      { "value": 0, "label": "None" },
+      { "value": 1, "label": "1 Static IP" }
+    ]
+  }
+  

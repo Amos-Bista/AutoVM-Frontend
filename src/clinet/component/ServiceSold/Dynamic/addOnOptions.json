@@ -1,0 +1,21 @@
+{
+    "Backup Space": [
+      { "value": "none", "label": "None" },
+      { "value": "eu-100gb-storage", "label": "100 GB Storage in European Union" },
+      { "value": "eu-250gb-storage", "label": "250 GB Storage in European Union" },
+      { "value": "eu-500gb-storage", "label": "500 GB Storage in European Union" },
+      { "value": "eu-1tb-storage", "label": "1 TB Storage in European Union" }
+    ],
+    "Server Management": [
+      { "value": "none", "label": "None" },
+      { "value": "eu-100gb-storage", "label": "100 GB Storage in European Union" },
+      { "value": "eu-250gb-storage", "label": "250 GB Storage in European Union" },
+      { "value": "eu-500gb-storage", "label": "500 GB Storage in European Union" },
+      { "value": "eu-1tb-storage", "label": "1 TB Storage in European Union" }
+    ],
+    "Monitoring": [
+      { "value": "none", "label": "None" },
+      { "value": "full-monitoring", "label": "Full Monitoring" }
+    ]
+  }
+  
