@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 // import serviceSummaryData from "../../assests/dynamic/serviceSummaryData.json"; // Adjust the path as necessary
 import { useSelector } from "react-redux";
-import { Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { useModal } from "../modalProvider/modalContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { setLoading } from "../reduxToolKit/service/slices";
 
 const OrderSummary = () => {
-  const { openModal, hideModal } = useModal();
+  const { hideModal } = useModal();
 
   // const { serviceName, serverQuantityOptions, details, pricing } =
   //   serviceSummaryData;
@@ -92,8 +92,8 @@ const OrderSummary = () => {
     }
 
     const url = isLinux
-      ? "http://10.10.10.137:5051/api/LXContainer/create"
-      : "http://10.10.10.137:5051/create";
+      ? "http://10.10.10.110:5051/api/LXContainer/create"
+      : "http://10.10.10.110:5051/create";
     try {
       setLoading(true);
       const response = await axios.post(url, data);

@@ -38,6 +38,7 @@ const ServiceSoldNetworking = ({
   };
 
   const handleOrderSummaryModal = () => {
+    
     console.log("Opening Order Summary Modal");
     openModal(ModalTypes.ORDER_SUMMARY);
   };

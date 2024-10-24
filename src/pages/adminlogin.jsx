@@ -27,9 +27,9 @@ const LoginForm = () => {
     setError(""); // Clear previous errors
 
     try {
-      await dispatch(
-        loginUser({ email: adminusername, password: adminpassword, navigate })
-      );
+      // await dispatch(
+      //   loginUser({ email: adminusername, password: adminpassword, navigate })
+      // );
       navigate("/admin");
       dispatch(setLoading(false)); // Reset loading state
     } catch (error) {

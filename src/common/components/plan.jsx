@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import plan from "../../common/assets/plan.json";
 import {
   setSoldCPU,
@@ -12,10 +12,10 @@ import {
   setSoldservicebillingperiodvalue,
   setSoldservicename,
   setSoldserviceprice,
+  setSoldsnapShot,
   setSoldstorage,
   setSoldtiers,
 } from "../reduxToolKit/service/slices";
-import Slider from "react-slick/lib/slider";
 
 export default function Plans() {
   const navigate = useNavigate();
@@ -54,7 +54,6 @@ export default function Plans() {
   // };
 
   useEffect(() => {
-    // Convert the object to an array of plans
     // setPlansData(plan);
   }, []);
   const [stateCss, setStateCss] = useState(true);
@@ -63,7 +62,7 @@ export default function Plans() {
     if (stateCss) {
       setTimeout(() => {
         setStateCss(false);
-      }, 10000); // Disabling the CSS after 2 seconds (duration of the animation)
+      }, 10000);
     }
   }, [stateCss]);
 
@@ -71,11 +70,11 @@ export default function Plans() {
     const selectedPlan = plan.find((plan) => plan.id === planId);
 
     if (selectedPlan) {
-      dispatch(setSoldservicename(selectedPlan.servicePlanTitle || "null"));
+      dispatch(setSoldservicename(selectedPlan.servicePlanTitle));
       dispatch(setSoldtiers(selectedPlan.servicePlanTiers));
       dispatch(setSoldserviceprice(selectedPlan.price));
-      dispatch(setSoldservicebillingperiod(0)); // Set to 0 or adjust based on your requirements
-      dispatch(setSoldservicebillingperiodvalue(selectedPlan.subscriptionPlan)); // Use the actual billing period value from your plan
+      dispatch(setSoldservicebillingperiod(0));
+      dispatch(setSoldservicebillingperiodvalue(selectedPlan.subscriptionPlan));
 
       dispatch(
         setSoldCPU(
@@ -92,7 +91,6 @@ export default function Plans() {
           )?.featureValue || 0
         )
       );
-
       dispatch(
         setSoldstorage(
           selectedPlan.specifications.find((spec) =>
@@ -100,34 +98,10 @@ export default function Plans() {
           )?.featureValue || 0
         )
       );
-
       // dispatch(setSoldsnapShot(selectedPlan.soldsnapshot || 0)); // Default to 0 if not provided
-
       // Forward to the /shop/:id route
       navigate(`/shop/${planId}`);
     }
-  };
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 100,
-    slidesToShow: 6,
-    slidesToScroll: 12,
-    // autoplay: autoplay,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    pauseOnHover: true,
-    // responsive: [
-    //   {
-    //     breakpoint: 600,
-    //     settings: {
-    //       slidesToShow: 4,
-    //       slidesToScroll: 1,
-    //       speed: 1200,
-    //       dots: true,
-    //     },
-    //   },
-    // ],
   };
 
   return (
@@ -141,7 +115,6 @@ export default function Plans() {
         // bg-[#0d507700]
          "
         >
-          {/* <Slider ref={sliderRef} {...settings} className=""> */}
           {plan?.map((plan, index) => {
             return (
               <Card
@@ -149,13 +122,10 @@ export default function Plans() {
                 className="overflow-hidden font-sans text-center rounded-md hover:shadow-2xl w-[20rem] border-b-2 border-[#0d50776f] transition-all transform hover:scale-105 duration-900 ease-in-out"
               >
                 <div>
-                  {/* Card */}
                   <div className="relative bg-[#0d5077]  flex-col justify-center py-4 overflow-hidden">
-                    {/* Shiny light animation */}
                     {stateCss && (
                       <div className="absolute inset-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-90 shine-effect"></div>
                     )}
-                    {/* Content */}
                     <h2
                       className="relative z-10 flex justify-center mx-auto text-3xl leading-none text-white"
                       style={{ fontFamily: "Vollkorn, serif" }}
@@ -166,7 +136,6 @@ export default function Plans() {
                       {plan?.servicePlanTiers}
                     </p>
 
-                    {/* Inline style for animation */}
                     {stateCss && (
                       <style>
                         {`
@@ -233,9 +202,8 @@ export default function Plans() {
               </Card>
             );
           })}
-          {/* </Slider> */}
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 }
