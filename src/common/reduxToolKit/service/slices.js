@@ -2,6 +2,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  admin: false,
+  client: false,
   loading: false,
   activeStep: 0,
   adminusername: "supAdmin@gmail.com",
@@ -41,6 +43,12 @@ const slice = createSlice({
   name: "app",
   initialState,
   reducers: {
+    setAdmin: (state, action) => {
+      state.admin = action.payload;
+    },
+    setClient: (state, action) => {
+      state.client = action.payload;
+    },
     setAdminusername: (state, action) => {
       state.adminusername = action.payload;
     },
@@ -147,6 +155,8 @@ const slice = createSlice({
 });
 
 export const {
+  setAdmin,
+  setClient,
   setSoldtiers,
   setLoading,
   setActiveStep,

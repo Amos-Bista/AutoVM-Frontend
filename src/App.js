@@ -11,8 +11,10 @@ import { ModalRoot } from "./common/modalProvider/modalRoot";
 import { Box } from "@mui/material";
 import NavBar from "./common/components/navbar";
 import admin from "../src/portal/component/portalSection.jsx/page";
-import LoginForm from "./pages/login";
+import LoginForm from "./pages/adminlogin";
 import Home from "./common/pages/home";
+import UserLandingSection from "./userportal/pages/userlandingsection/userlandingsection";
+import UserLoginForm from "./pages/userlogin";
 
 // Define components directly in the App.jsx for simplicity
 
@@ -31,8 +33,16 @@ const routes = [
     component: admin,
   },
   {
-    path: "/login",
+    path: "/user/*",
+    component: UserLandingSection,
+  },
+  {
+    path: "/adminlogin",
     component: LoginForm,
+  },
+  {
+    path: "/userlogin",
+    component: UserLoginForm,
   },
 ];
 
@@ -44,7 +54,9 @@ const App = () => {
       {/* <Router> */}
       {!(
         location.pathname === "/admin" ||
-        location.pathname.startsWith("/admin/")
+        location.pathname === "/user" ||
+        location.pathname.startsWith("/admin/") ||
+        location.pathname.startsWith("/user/")
       ) && <NavBar />}
 
       <Routes>

@@ -1,33 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { setAdmin, setClient } from "../reduxToolKit/service/slices"; // Import setAdmin and setClient
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const NavItems = [
-    { title: "Home", link: "/" },
-    { title: "About Us", link: "/about" },
-    { title: "Contact", link: "/contact" },
-    { title: "Admin", link: "/login" },
-
-    // Uncomment and use this for dropdown example
-    // {
-    //   title: "Services",
-    //   link: "#",
-    //   dropdown: [
-    //     { title: "Service 1", link: "/service1" },
-    //     { title: "Service 2", link: "/service2" },
-    //   ],
-    // },
-  ];
+  const { admin, client } = useSelector((state) => state.app); // Adjust to use 'app' slice
+  console.log("admin", admin);
+  console.log("client", client);
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setScrolled(offset > 350);
+      setScrolled(window.scrollY > 350);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -37,35 +25,31 @@ const NavBar = () => {
     };
   }, []);
 
-  const handleServiceMouseEnter = () => {
-    setShowDropdown(true);
-  };
-
-  const handleServiceMouseLeave = () => {
-    setShowDropdown(false);
-  };
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setShowDropdown(false);
+  const handleMenuItemClick = (role) => {
+    // setMenuOpen(false);
+    if (role === "admin") {
+      dispatch(setAdmin(true)); // Dispatching setAdmin action
+      dispatch(setClient(false)); // Ensure client is set to false
+    } else if (role === "client") {
+      dispatch(setAdmin(false)); // Ensure admin is set to false
+      dispatch(setClient(true)); // Dispatching setClient action
     }
+    navigate("/login"); // Redirecting to login page
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
-  const handleMenuItemClick = () => {
-    setMenuOpen(false);
-  };
+  const NavItems = [
+    { title: "Home", link: "/" },
+    {
+      title: "Admin",
+      link: "/adminlogin",
+      onClick: () => handleMenuItemClick("admin"),
+    },
+    {
+      title: "User",
+      link: "/userlogin",
+      onClick: () => handleMenuItemClick("client"),
+    },
+  ];
 
   return (
     <div className={`pl-7 pr-7 ${scrolled ? "bg-white" : "bg-[#0e3f5b]"}`}>
@@ -80,7 +64,7 @@ const NavBar = () => {
         <div className="flex items-center justify-end w-full align-middle">
           <button
             className="block mt-0 align-middle md:hidden"
-            onClick={toggleMenu}
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle Menu"
           >
             <svg
@@ -106,63 +90,30 @@ const NavBar = () => {
           >
             {NavItems.map((item, index) => (
               <li key={index} className="hover:underline active:text-blue-900">
-                {item.dropdown ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={handleServiceMouseEnter}
-                    onMouseLeave={handleServiceMouseLeave}
-                  >
-                    <span>{item.title}</span>
-                    {showDropdown && (
-                      <ul
-                        ref={dropdownRef}
-                        className={`absolute text-black top-full left-0 shadow-md rounded-b-lg ${
-                          scrolled
-                            ? "bg-white text-black"
-                            : "bg-[#062435] text-white"
-                        }`}
-                        aria-label="Dropdown Menu"
-                      >
-                        {item.dropdown.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <NavLink
-                              to={subItem.link}
-                              className={`block w-64 text-m hover:bg-blue-100/90 py-2 px-2 ${
-                                scrolled ? "text-black" : "text-white"
-                              }`}
-                            >
-                              {subItem.title}
-                            </NavLink>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ) : (
-                  <NavLink
-                    className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? "active underline decoration-white"
-                        : ""
-                    }
-                    to={item.link}
-                  >
-                    {item.title}
-                  </NavLink>
-                )}
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "active underline decoration-white" : ""
+                  }
+                  to={item.link}
+                  onClick={item.onClick}
+                >
+                  {item.title}
+                </NavLink>
               </li>
             ))}
           </ul>
         </div>
       </div>
+      {/* Mobile menu */}
       <div
         className={`fixed top-0 right-0 z-50 w-32 bg-[#0D5077] shadow-md transition-transform duration-300 ease-in-out transform pt-12 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
-        <button className="absolute text-xl top-4 right-4" onClick={toggleMenu}>
+        <button
+          className="absolute text-xl top-4 right-4"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           <svg
             className="w-6 h-6"
             fill="none"
@@ -182,38 +133,9 @@ const NavBar = () => {
         <ul className="flex flex-col items-center gap-8 py-4 text-white">
           {NavItems.map((item, index) => (
             <li key={index} className="hover:underline">
-              {item.dropdown ? (
-                <div className="relative">
-                  <span>{item.title}</span>
-                  <ul className="absolute left-0 text-black bg-white rounded-b-lg shadow-md top-full">
-                    {item.dropdown.map((subItem, subIndex) => (
-                      <li key={subIndex}>
-                        <NavLink
-                          onClick={handleMenuItemClick}
-                          to={subItem.link}
-                          className="block py-2 text-black text-m hover:bg-white"
-                        >
-                          {subItem.title}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "active underline decoration-white"
-                      : ""
-                  }
-                  to={item.link}
-                  onClick={handleMenuItemClick}
-                >
-                  {item.title}
-                </NavLink>
-              )}
+              <NavLink to={item.link} onClick={item.onClick}>
+                {item.title}
+              </NavLink>
             </li>
           ))}
         </ul>

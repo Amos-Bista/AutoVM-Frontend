@@ -10,81 +10,65 @@ import { Link, useNavigate } from "react-router-dom";
 const sidebarData = [
   {
     title: "Dashboard",
-    path: "/admin",
+    path: "/user",
     icon: <AiFillHome size={20} />,
   },
   {
     title: "Services",
-    path: "/admin/service",
+    // path: "/admin/service",
     icon: <MdDesignServices size={19} />,
     subItems: [
       {
-        title: "Unit",
-        path: "/admin/unit",
+        title: "Services List",
+        path: "/user/userservicelist",
       },
       {
-        title: "Bundle",
-        path: "/admin/bundle",
-      },
-      {
-        title: "Schemes",
-        path: "/admin/schemes",
+        title: "Service Monitoring",
+        path: "/user/userservicemonitoring",
       },
     ],
   },
+
   {
-    title: "Users",
-    path: "/admin/user",
+    title: "Shop",
+    // path: "/admin/shop",
     icon: <FaUser size={19} />,
     subItems: [
       {
-        title: "Customers",
-        path: "/admin/customer",
-      },
-      {
-        title: "Staff",
-        path: "/admin/staff",
+        title: "ServiceList to Sell",
+        path: "/user/userservicelisttosell",
       },
     ],
   },
-  // {
-  //   title: "Shop",
-  //   path: "/admin/shop",
-  //   icon: <FaUser size={19} />,
-  //   subItems: [
-  //     {
-  //       title: "Customers",
-  //       path: "/admin/customer",
-  //     },
-  //     {
-  //       title: "Staff",
-  //       path: "/admin/staff",
-  //     },
-  //   ],
-  // },
   {
     title: "Reports",
-    path: "/admin/report",
+    // path: "/admin/report",
     icon: <TbFileReport size={20} />,
+    subItems: [
+      {
+        title: "Transaction",
+        path: "/user/usertransactions",
+      },
+    ],
   },
   {
     title: "Settings",
-    path: "/admin/setting",
+    // path: "/admin/setting",
     icon: <MdSettings size={20} />,
     subItems: [
       {
         title: "Account Settings",
-        path: "/admin/setting",
+        path: "/user/useraccountsetting",
       },
       {
         title: "Privacy Settings",
-        path: "/admin/setting",
+        path: "/user/userprivacysetting",
       },
     ],
   },
 ];
 
-const Portalsidebar = () => {
+const UserPortalsidebar = () => {
   const { admin, client } = useSelector((state) => state.app);
   const [openIndex, setOpenIndex] = useState(-1); // Start with no submenus open
   const navigate = useNavigate();
@@ -102,7 +86,6 @@ const Portalsidebar = () => {
   };
 
   // Filter items based on role
- 
 
   return (
     <Box
@@ -218,4 +201,4 @@ const Portalsidebar = () => {
   );
 };
 
-export default Portalsidebar;
+export default UserPortalsidebar;
